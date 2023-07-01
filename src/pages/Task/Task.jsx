@@ -75,7 +75,9 @@ const Task = () => {
           }
           toggleModal={toggleModal}
         >
-          {actionType === 'Delete' && <TaskDeletePopup id={taskId} />}
+          {actionType === 'Delete' && (
+            <TaskDeletePopup id={taskId} toggleModal={toggleModal} />
+          )}
           {actionType === 'Edit' && (
             <TasksPopup
               toggleModal={toggleModal}

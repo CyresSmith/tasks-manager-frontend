@@ -28,23 +28,4 @@ const axiosBaseQuery = async queryParams => {
   }
 };
 
-axios.interceptors.request.use(
-  config => {
-    const token = store.getState().auth.token;
-
-    if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`;
-    }
-
-    if (!token) {
-      config.headers['Authorization'] = ``;
-      // store.dispatch(resetAuth());
-    }
-    return config;
-  },
-  error => {
-    return Promise.reject(error);
-  }
-);
-
 export default axiosBaseQuery;
